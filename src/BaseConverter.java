@@ -12,12 +12,10 @@ public class BaseConverter {
             BigInteger x = BigInteger.valueOf(arrRev[i]);
             BigInteger re = x.multiply(b.pow(i));
             val[i] = re;
-            //System.out.println(val[i]);
         }
         for (int l = 0; l < val.length; l++) {
             sum = sum.add(val[l]);
         }
-        //System.out.println(sum);
         return sum;
     }
 
@@ -25,7 +23,6 @@ public class BaseConverter {
         BigInteger val = inp;
         BigInteger test = BigInteger.valueOf(base);
         int comp1 = 0;
-
         int pow;
         BigInteger subtr;
         BigInteger hasil;
@@ -42,7 +39,6 @@ public class BaseConverter {
 
         digits = new int[i];
         --i;
-        ///System.out.println("digits:"+i);
         BigInteger hasil2 = val;
         BigInteger sum;
         BigInteger hasil3 = BigInteger.valueOf(0);
@@ -50,10 +46,7 @@ public class BaseConverter {
 
             int k = 0;
             BigInteger powered;
-
-
             powered = test.pow(i - jj);
-
             int comp2 = 0;
 
             for (int kk = 1; comp2 > -1; kk++) {
@@ -61,25 +54,19 @@ public class BaseConverter {
                 BigInteger subtr2;
                 subtr2 = powered.multiply(BigInteger.valueOf(kk));
                 comp2 = hasil2.subtract(subtr2).compareTo(BigInteger.valueOf(0));
-                //System.out.println("sum2:" + hasil2);
+                
                 if(comp2!=-1) {
-                    //System.out.println("sum0:" + hasil3);
+                    
                     sum = hasil2.subtract(subtr2);
-
-                        hasil3 = sum;
-
-                    //System.out.println("kk:"+kk);
+                    hasil3 = sum;
                     k = kk;
 
                 }
                 else break;
-                //System.out.println("sum2:" + hasil3);
+
             }
-
             hasil2 = hasil3;
-
             digits[jj] = k;
-            //System.out.println("digits:"+digits[jj]);
         }
 
         return digits;
